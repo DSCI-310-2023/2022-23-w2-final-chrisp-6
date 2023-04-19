@@ -11,16 +11,12 @@ library(ggplot2)
 
 knitr::opts_chunk$set(echo = TRUE)
 
+# This code below is what's needed to process our dataset
+# the beaver datasets are builtin the R programming language
+# you do not need to do anything to use the dataset,
+# but we will be processing them
 
-```
-
-## Introduction
-
-Reynolds (1994) describes a small part of a study of the long-term temperature dynamics of beaver Castor canadensis in north-central Wisconsin. Body temperature was measured by telemetry every 10 minutes for four females, but data from a one period of less than a day for each of two animals is used there.
-
-The vast majority of the text and code are taken from the `beavers` data documentation page.
-
-```{r}
+# the bev data is what we will use for other parts of the analysis
 
 ```
 
@@ -29,9 +25,7 @@ The vast majority of the text and code are taken from the `beavers` data documen
 In our processed data, we have combined data from the original `beaver1` and `beaver2`. The below table shows how many time observations for each beaver.
 
 ```{r}
-# this table calculation should be loaded in the final report
-bev_num_counts <- bevs |>
-  dplyr::count(bev_num)
+
 ```
 
 ```{r}
