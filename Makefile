@@ -1,4 +1,4 @@
-report:
+report: report.rmd
   Rscript render report.rmd --to_html
 
 data: analysis/load_clean.R
