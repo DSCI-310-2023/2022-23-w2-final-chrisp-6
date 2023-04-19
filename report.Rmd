@@ -11,30 +11,18 @@ library(ggplot2)
 
 knitr::opts_chunk$set(echo = TRUE)
 
-```
-
-## Introduction
-
-Reynolds (1994) describes a small part of a study of the long-term temperature dynamics
-of beaver Castor canadensis in north-central Wisconsin.
-Body temperature was measured by telemetry every 10 minutes for four females,
-but data from a one period of less than a day for each of two animals is used there.
-
-The vast majority of the text and code are taken from the `beavers` data documentation page.
-
-```{r}
 # This code below is what's needed to process our dataset
 # the beaver datasets are builtin the R programming language
 # you do not need to do anything to use the dataset,
 # but we will be processing them
 
 # the bev data is what we will use for other parts of the analysis
+
 ```
 
 ## Data description
 
-In our processed data, we have combined data from the original `beaver1` and `beaver2`.
-The below table shows how many time observations for each beaver.
+In our processed data, we have combined data from the original `beaver1` and `beaver2`. The below table shows how many time observations for each beaver.
 
 ```{r}
 
@@ -48,10 +36,10 @@ bev_num_counts |>
 
 The main columns of our data are as follows:
 
-- `day`: Day of observation (in days since the beginning of 1990), December 12–13 (beaver1) and November 3–4 (beaver2).
-- `time`: Time of observation, in the form `0330` for 3:30am
-- `temp`: Measured body temperature in degrees Celsius
-- `activ`: Indicator of activity outside the retreat
+-   `day`: Day of observation (in days since the beginning of 1990), December 12--13 (beaver1) and November 3--4 (beaver2).
+-   `time`: Time of observation, in the form `0330` for 3:30am
+-   `temp`: Measured body temperature in degrees Celsius
+-   `activ`: Indicator of activity outside the retreat
 
 Below we are counting the recoded `activ` column, `activ_char` by the `bev_num`
 
@@ -64,19 +52,17 @@ activ_char_counts |>
   knitr::kable()
 ```
 
-We also have a figure looking at temperatures of each beaver over time.
-The red points are when the beaver was active.
+We also have a figure looking at temperatures of each beaver over time. The red points are when the beaver was active.
 
 ```{r}
-# this is a figure that should be saved and loaded into the report
 
 ```
 
-
 ## References
 
+```{=html}
 <!--
 You do not need to turn this into a bibliography + citation
 -->
-
+```
 P. S. Reynolds (1994) Time-series analyses of beaver body temperatures. Chapter 11 of Lange, N., Ryan, L., Billard, L., Brillinger, D., Conquest, L. and Greenhouse, J. eds (1994) Case Studies in Biometry. New York: John Wiley and Sons.
