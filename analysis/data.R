@@ -1,9 +1,6 @@
-library(knitr)
-library(dplyr)
-library(purrr)
-library(ggplot2)
+library(tidyverse)
 
-
+# this is a function we will use to recode the activ value in our data
 recode_activ <- function(activ_value) {
   if (is.na(activ_value)) {
     return(NA_character_)
@@ -15,6 +12,7 @@ recode_activ <- function(activ_value) {
     stop("Unknown activ value")
   }
 }
+
 
 # This code below is what's needed to process our dataset
 # the beaver datasets are builtin the R programming language
@@ -38,6 +36,9 @@ bevs <- dplyr::bind_rows(bev1, bev2) |>
     activ_char = purrr::map_chr(activ, recode_activ)
   )
 
-# this table calculation should be loaded in the final report
-bev_num_counts <- bevs |>
-  dplyr::count(bev_num)
+# the bev data is what we will use for other parts of the analysis
+
+# there is a table calculation here that ends up being displayed in the final report
+
+activ_char_counts <- bevs |>
+  dplyr::count(bev_num, activ_char)

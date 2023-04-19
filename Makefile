@@ -1,12 +1,12 @@
 report: report.rmd
-  Rscript render report.rmd --to_html
+	Rscript -e "rmarkdown::render('report.rmd','bookdown::html_document2')"
 
-data: analysis/load_clean.R
-  mkdir analysis/output
-  Rscript load_clean.R
+output/data: analysis/data.R
+	Rscript data.R
 
-figs: analysis/figures.R
-	Rscript analysis/figures.R
+output/figs: analysis/figure.R
+	Rscript figure.R
 
 clean:
   rm -rf report.html
+  rm -rf output/

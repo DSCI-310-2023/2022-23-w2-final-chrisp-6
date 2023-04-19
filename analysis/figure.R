@@ -1,8 +1,7 @@
 library(tidyverse)
 library(ggplot2)
 
-
-
+# this is a figure that should be saved and loaded into the report
 g <- ggplot(bevs) +
   geom_line(aes(x = hours, y = temp)) +
   geom_point(
