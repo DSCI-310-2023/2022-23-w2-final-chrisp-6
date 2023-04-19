@@ -42,3 +42,6 @@ bevs <- dplyr::bind_rows(bev1, bev2) |>
 
 activ_char_counts <- bevs |>
   dplyr::count(bev_num, activ_char)
+
+
+write.csv(bevs, "analysis/output/bevs.csv")

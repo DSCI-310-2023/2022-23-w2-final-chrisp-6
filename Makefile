@@ -1,10 +1,10 @@
 report: report.rmd
 	Rscript -e "rmarkdown::render('report.rmd','bookdown::html_document2')"
 
-output/data: analysis/data.R
+data: analysis/data.R
 	Rscript data.R
 
-output/figs: analysis/figure.R
+figs: analysis/figure.R analysis/data.R
 	Rscript figure.R
 
 clean:

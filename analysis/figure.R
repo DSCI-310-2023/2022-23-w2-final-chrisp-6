@@ -1,6 +1,8 @@
 library(tidyverse)
 library(ggplot2)
 
+
+bevs <- read.csv('bevs.csv')
 # this is a figure that should be saved and loaded into the report
 g <- ggplot(bevs) +
   geom_line(aes(x = hours, y = temp)) +
@@ -15,3 +17,5 @@ g <- ggplot(bevs) +
   theme_minimal()
 
 g
+
+ggsave("analysis/output/graph.png", g)

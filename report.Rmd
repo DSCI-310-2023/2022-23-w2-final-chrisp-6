@@ -18,6 +18,11 @@ knitr::opts_chunk$set(echo = TRUE)
 In our processed data, we have combined data from the original `beaver1` and `beaver2`. The below table shows how many time observations for each beaver.
 
 ```{r}
+knitr::kable('bevs.csv')
+```
+
+
+```{r}
 # this table should be displayed in the report
 bev_num_counts |>
   knitr::kable()
@@ -43,7 +48,7 @@ activ_char_counts |>
 We also have a figure looking at temperatures of each beaver over time. The red points are when the beaver was active.
 
 ```{r}
-
+knitr::include_graphics('graph.png')
 ```
 
 ## References
