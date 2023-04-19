@@ -37,3 +37,7 @@ bevs <- dplyr::bind_rows(bev1, bev2) |>
   dplyr::mutate(
     activ_char = purrr::map_chr(activ, recode_activ)
   )
+
+# this table calculation should be loaded in the final report
+bev_num_counts <- bevs |>
+  dplyr::count(bev_num)

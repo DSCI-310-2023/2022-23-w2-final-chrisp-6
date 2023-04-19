@@ -11,19 +11,6 @@ library(ggplot2)
 
 knitr::opts_chunk$set(echo = TRUE)
 
-# this is a function we will use to recode the activ value in our data
-recode_activ <- function(activ_value) {
-  if (is.na(activ_value)) {
-    return(NA_character_)
-  } else if (activ_value == 1) {
-    return("active")
-  } else if (activ_value == 0) {
-    return("inactive")
-  } else {
-    stop("Unknown activ value")
-  }
-}
-
 ```
 
 ## Introduction
@@ -41,23 +28,6 @@ The vast majority of the text and code are taken from the `beavers` data documen
 # you do not need to do anything to use the dataset,
 # but we will be processing them
 
-bev1 <- beaver1 |>
-  dplyr::mutate(
-    bev_num = 1,
-    hours = time %/% 100 + 24*(day - day[1]) + (time %% 100)/60
-  )
-
-bev2 <- beaver2 |>
-  dplyr::mutate(
-    bev_num = 2,
-    hours = time %/% 100 + 24*(day - day[1]) + (time %% 100)/60
-  )
-
-bevs <- dplyr::bind_rows(bev1, bev2) |>
-  dplyr::mutate(
-    activ_char = purrr::map_chr(activ, recode_activ)
-  )
-
 # the bev data is what we will use for other parts of the analysis
 ```
 
@@ -67,9 +37,7 @@ In our processed data, we have combined data from the original `beaver1` and `be
 The below table shows how many time observations for each beaver.
 
 ```{r}
-# this table calculation should be loaded in the final report
-bev_num_counts <- bevs |>
-  dplyr::count(bev_num)
+
 ```
 
 ```{r}
@@ -101,19 +69,7 @@ The red points are when the beaver was active.
 
 ```{r}
 # this is a figure that should be saved and loaded into the report
-g <- ggplot(bevs) +
-  geom_line(aes(x = hours, y = temp)) +
-  geom_point(
-    data = dplyr::filter(bevs, activ == 1),
-    aes(x = hours, y = temp),
-    color = "red"
-  ) +
-  geom_hline(yintercept = 37.5, color = "grey") +
-  facet_grid(~bev_num) +
-  ggtitle("Beaver Body Temperatures") +
-  theme_minimal()
 
-g
 ```
 
 
